@@ -13,6 +13,7 @@ Shell startup script analysis
 MOTD persistence hunting
 Base64 and Hex decoding
 
+
 **Task 1: Investigating Systemd Services**
 Clue
 "I run with the big dogs, booting up alongside the system."
@@ -36,6 +37,7 @@ What I Learned
 
 Attackers can create malicious systemd services to ensure their malware executes automatically after every reboot.
 
+
 **Task 2: Investigating Cron Jobs**
 Clue
 "Time is on my side, always running like clockwork."
@@ -52,6 +54,7 @@ After decoding the content, another flag fragment was obtained.
 What I Learned
 
 Cron jobs are commonly abused for persistence because they allow attackers to repeatedly execute payloads at specific intervals.
+
 
 **Task 3: Investigating SSH Key Persistence**
 Clue
@@ -70,6 +73,7 @@ What I Learned
 
 Attackers frequently add their own SSH public keys to maintain passwordless access to compromised systems.
 
+
 **Task 4: Investigating Shell Startup Files**
 Clue
 "Whenever you set the stage, I make my entrance."
@@ -86,6 +90,7 @@ After decoding the content, another flag fragment was recovered.
 What I Learned
 
 Shell startup files execute automatically whenever a user opens a terminal, making them attractive persistence locations.
+
 
 **Task 5: Investigating MOTD Scripts**
 Clue
@@ -104,6 +109,7 @@ What I Learned
 
 MOTD scripts execute during login and are often overlooked during security reviews, making them useful for stealthy persistence.
 
+
 **Key Persistence Locations Identified:**
 Persistence Method	Location
 Systemd Service	/lib/systemd/system/
@@ -111,10 +117,10 @@ Cron Job	Root Crontab
 SSH Keys	~/.ssh/authorized_keys
 Login Script	~/.bashrc
 MOTD Script	/etc/update-motd.d/
-Final Flag
-THM{REDACTED}
 
-(Replace with the actual flag if your repository policy allows publishing flags.)
+**Final Flag**
+THM{y0u_g0t_3v3ryth1ng_d0wn}
+
 
 Conclusion
 
