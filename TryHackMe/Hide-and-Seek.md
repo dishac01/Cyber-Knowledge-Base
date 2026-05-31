@@ -1,4 +1,4 @@
-🕵️ Hide and Seek - TryHackMe Writeup
+''🕵️ Hide and Seek - TryHackMe Writeup''
 Room Overview
 
 The Hide and Seek room focuses on Linux persistence mechanisms and basic digital forensics investigation. The objective is to locate multiple hidden flag fragments left by an attacker across different persistence locations and combine them to obtain the final flag.
