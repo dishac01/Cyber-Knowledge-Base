@@ -1,9 +1,9 @@
-''🕵️ Hide and Seek - TryHackMe Writeup''
-Room Overview
+**🕵️ Hide and Seek - TryHackMe Writeup**
 
+Room Overview:
 The Hide and Seek room focuses on Linux persistence mechanisms and basic digital forensics investigation. The objective is to locate multiple hidden flag fragments left by an attacker across different persistence locations and combine them to obtain the final flag.
 
-Skills Learned
+Skills Learned:
 Linux persistence techniques
 Incident response investigation
 Systemd service analysis
@@ -12,9 +12,9 @@ SSH key persistence detection
 Shell startup script analysis
 MOTD persistence hunting
 Base64 and Hex decoding
-Task 1: Investigating Systemd Services
-Clue
 
+**Task 1: Investigating Systemd Services**
+Clue
 "I run with the big dogs, booting up alongside the system."
 
 This clue points toward systemd services, which automatically start during system boot.
@@ -22,19 +22,22 @@ This clue points toward systemd services, which automatically start during syste
 Enumeration
 ls -la /lib/systemd/system/
 
-A suspicious service file was discovered.
+A suspicious service file was discovered. (cipher.service)
 
 cat /lib/systemd/system/cipher.service
 
 The service contained an encoded string that was decoded to reveal a fragment of the flag.
 
+echo NHRoIHBhcnQgLSBoMW5nXyAK | base64 -d
+
+4th part - h1ng_
+
 What I Learned
 
 Attackers can create malicious systemd services to ensure their malware executes automatically after every reboot.
 
-Task 2: Investigating Cron Jobs
+**Task 2: Investigating Cron Jobs**
 Clue
-
 "Time is on my side, always running like clockwork."
 
 This clue refers to cron jobs, which execute commands on a scheduled basis.
@@ -50,9 +53,8 @@ What I Learned
 
 Cron jobs are commonly abused for persistence because they allow attackers to repeatedly execute payloads at specific intervals.
 
-Task 3: Investigating SSH Key Persistence
+**Task 3: Investigating SSH Key Persistence**
 Clue
-
 "A secret handshake gets me in every time."
 
 This clue suggests SSH key authentication.
@@ -68,9 +70,8 @@ What I Learned
 
 Attackers frequently add their own SSH public keys to maintain passwordless access to compromised systems.
 
-Task 4: Investigating Shell Startup Files
+**Task 4: Investigating Shell Startup Files**
 Clue
-
 "Whenever you set the stage, I make my entrance."
 
 This clue points toward shell startup files such as .bashrc.
@@ -86,9 +87,8 @@ What I Learned
 
 Shell startup files execute automatically whenever a user opens a terminal, making them attractive persistence locations.
 
-Task 5: Investigating MOTD Scripts
+**Task 5: Investigating MOTD Scripts**
 Clue
-
 "I love welcome messages."
 
 This clue refers to the Message of the Day (MOTD) mechanism.
@@ -104,7 +104,7 @@ What I Learned
 
 MOTD scripts execute during login and are often overlooked during security reviews, making them useful for stealthy persistence.
 
-Key Persistence Locations Identified
+**Key Persistence Locations Identified:**
 Persistence Method	Location
 Systemd Service	/lib/systemd/system/
 Cron Job	Root Crontab
