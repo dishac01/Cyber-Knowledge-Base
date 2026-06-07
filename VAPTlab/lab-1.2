@@ -4,6 +4,21 @@ Step 0: Discovering the target IP address (**Netdiscover**)
 kali$ netdiscover
 kali$ nmap -sV -O 10.0.2.5
 
-Step 1: Launching vulnerability assessment (**Nessus**)
+Step 1: Launching vulnerability assessment (**Nessus**) -> Automated VA
 kali$ sudo systemctl start nessusd
 https://localhost:8834
+
+(to be updated)
+
+Step A: Port scanning & Service fingerprinting (**Nmap**) -> Manual PT
+kali$ nmap -sS -sV -O 10.0.2.5 
+->vsFTPd 3.0.3 may have anonymous access enabled
+->openSSH 7.4p1 Debian could be brute forced or banner exploited
+->apache HTTPd is outdated, possible apache CVEs
+->Miniserv webmin interface known for past RCEs
+->OS detected as well
+
+Step B: 
+
+
+
