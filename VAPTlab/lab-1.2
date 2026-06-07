@@ -18,7 +18,13 @@ kali$ nmap -sS -sV -O 10.0.2.5
 ->Miniserv webmin interface known for past RCEs
 ->OS detected as well
 
-Step B: 
+Step B: Web server analysis (**Nikto**) -> Manual PT
+kali$ nikto -h http://10.0.2.5
+->apache outdated = high risk
+->wordpress indicators found (content disclosure) = medium risk 
+->security headers missing (x-frame options not set, clickjacking; x-content-type-options missing, mime sniffing attack) = medium risk
+=>The server is hosting a potentially vulnerable CMS (Drupal/WordPress), is missing several basic HTTP security headers, and runs outdated software versions - all of which contribute to a weak attack surface. Additionally, the presence of Webmin interface (MiniServ) suggestsa potential vector for remote code execution (RCE).
+
 
 
 
