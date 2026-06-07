@@ -24,7 +24,43 @@ kali$ nikto -h http://10.0.2.5
 ->wordpress indicators found (content disclosure, cms) = medium risk 
 ->security headers missing (x-frame options not set, clickjacking; x-content-type-options missing, mime sniffing attack) = medium risk
 =>The server is hosting a potentially vulnerable CMS (Drupal/WordPress), is missing several basic HTTP security headers, and runs outdated software versions - all of which contribute to a weak attack surface. Additionally, the presence of Webmin interface (MiniServ) suggestsa potential vector for remote code execution (RCE).
+=>exploit ftp, webmin, cms brute force, cms enum
 
+PHASE 2: PENETRATION TESTING (MANUAL EXPLOITATION)
+
+Exploit 1: FTP MISCONFIGURATION - ANONYMOUS ACCESS AND FILE DOWNLOAD
+
+Step 1: Connect to FTP as an anonymous user
+kali$ ftp 10.0.2.5
+->unauthenticated access
+
+Step 2: List FTP directory contents
+ftp> ls
+->wordpress installation 
+->reveals key config and php files
+
+Step 3: Download sensitive files
+ftp> get wp-config.php
+ftp> get wp-login.php
+->config & login files downloaded
+
+Step 4: Attempt to upload or create files (write test)
+ftp> mkdir test => 550 permission denied
+ftp> put shell.php => no such file
+->write access restricted
+->directory creation or file upload not possible
+
+=>wp-config.php may expose db credentials, salts, default settings
+=>read-access risky
+
+Exploit 2: WEBMIN ACCESS - TARGETING REMOTE CODE EXECUTION
+
+Step 1: Access Webmin in browser
+https://10.0.2.5:10000
+->version detected from nmap (MiniServ 1.890)
+
+Step 2: Vulnerability check
+->CVE-2019-15107 affects Webmin 1.890 — allows unauthenticated RCE via crafted POST request to /password_change.cgi.
 
 
 
