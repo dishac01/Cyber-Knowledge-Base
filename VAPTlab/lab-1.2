@@ -107,4 +107,15 @@ cat /var/www/html/wp-config.php
 
 
 Exploit 3: WORDPRESS ENUMERATION VIA WPSCAN
+kali$ wpscan --url http://10.0.2.5
+-> wordpress version 5.2.3 (insecure, outdated)
+-> theme twentyseventeen (outdated)
+-> wp-google-maps plugin found 
+-> wp-cron.php endpoint found
+-> readme.html found (reveals version)
+-> phpinfo.php (info disclosure)
+-> /uploads/ directory indexing enabled
+
+
+Exploit 4: WORDPRESS PLUGIN SQL INJECTION - WP-GOOGLE-MAPS (CVE-2019-10692)
 
