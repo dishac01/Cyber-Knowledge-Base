@@ -77,3 +77,34 @@ hostname -> HF2019-Linux (machine name)
 uname -a -> (linux kernel version & architecture)
 
 
+PHASE 2: NETWORK AND SERVICES ENUMERATION
+//continue from step 3 from phase 1 exploit 2
+ip a -> (internal ip, subnet & interfaces)
+netstat -tulnp -> (open ports & associated services)
+
+
+PHASE 3: OS & USER-SPECIFIC DETAILS
+//continue from phase 2
+cat /etc/os-release -> (OS info)
+cat etc/issue -> (pre login text displayed on terminal screen)
+sudo -l -> (commands which can be run as root)
+ps aux -> (running processes)
+
+
+PHASE 4: FILE & SERVICE DISCOVERY
+//continue from phase 3
+ls -la /home -> (reveals local users on system)
+ls -la /root -> (flag.txt)
+cat /root/flag.txt -> (confirms root-level access since only root has permission to read)
+ls -la /var/www/html -> (lists web server directory, confirms wordpress installation & config files)
+
+
+PHASE 5: EXTRACTING WORDPRESS CONFIGURATION (DB CREDENTIALS)
+//continue from phase 4
+cat /var/www/html/wp-config.php 
+-> wp-config.php stores MySQL credentials & sensitive Wordpress settings
+-> DB name, username & password found
+
+
+Exploit 3: WORDPRESS ENUMERATION VIA WPSCAN
+
