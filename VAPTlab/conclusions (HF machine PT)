@@ -1,9 +1,8 @@
-### HF2019 Server Pentesting – Short Summary
-
+HF2019 Server Pentesting – Short Summary:
 The final phase focused on post-exploitation enumeration and evidence collection after gaining a root shell through the Webmin RCE vulnerability. The system was fully compromised, allowing access to sensitive files, services, user information, and WordPress credentials. 
 
-#### Key Findings
 
+Key Findings:
 * Confirmed **root-level access** on the HF2019 machine.
 * Identified active services: FTP, SSH, MySQL, Apache, and Webmin.
 * Enumerated users and system information.
@@ -14,8 +13,8 @@ The final phase focused on post-exploitation enumeration and evidence collection
 * Cracked the WordPress password hash using John the Ripper.
 * Successfully logged into the WordPress admin dashboard with recovered credentials. 
 
-#### Main Attack Chain
 
+Main Attack Chain:
 1. Nessus vulnerability assessment.
 2. Nmap and Nikto reconnaissance.
 3. FTP anonymous access discovery.
@@ -27,8 +26,8 @@ The final phase focused on post-exploitation enumeration and evidence collection
 9. Password cracking.
 10. WordPress admin access. 
 
-#### Important Commands Used
 
+Important Commands Used:
 whoami
 id
 hostname
@@ -50,15 +49,15 @@ exploit
 
 john --wordlist=/usr/share/wordlists/rockyou.txt wordpresshash.txt
 
-#### Vulnerabilities Identified
 
+Vulnerabilities Identified:
 * FTP Anonymous Access
 * Webmin RCE (CVE-2019-15107)
 * WordPress Plugin SQL Injection (CVE-2019-10692)
 * Weak WordPress Password (cracked with rockyou.txt)
 * Poor security hardening and outdated components. 
 
-#### Conclusion
 
+Conclusion:
 The assessment achieved full system compromise, including root access, extraction of sensitive credentials, WordPress admin access, and proof of impact through flag retrieval. The report recommends disabling anonymous FTP, patching Webmin and vulnerable plugins, enforcing strong passwords, enabling MFA, restricting unnecessary services, and performing regular vulnerability assessments. 
 
