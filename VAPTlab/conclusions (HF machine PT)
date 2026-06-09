@@ -1,1 +1,66 @@
+### HF2019 Server Pentesting – Short Summary
+
+The final phase focused on **post-exploitation enumeration and evidence collection** after gaining a root shell through the Webmin RCE vulnerability. The system was fully compromised, allowing access to sensitive files, services, user information, and WordPress credentials. 
+
+#### Key Findings
+
+* Confirmed **root-level access** on the HF2019 machine.
+* Identified active services: FTP, SSH, MySQL, Apache, and Webmin.
+* Enumerated users and system information.
+* Located WordPress installation and extracted database credentials from `wp-config.php`.
+* Retrieved the root flag, proving complete system compromise.
+* Enumerated WordPress plugins and discovered the vulnerable **wp-google-maps** plugin.
+* Exploited SQL Injection to dump WordPress user credentials.
+* Cracked the WordPress password hash using John the Ripper.
+* Successfully logged into the WordPress admin dashboard with recovered credentials. 
+
+#### Main Attack Chain
+
+1. Nessus vulnerability assessment.
+2. Nmap and Nikto reconnaissance.
+3. FTP anonymous access discovery.
+4. Webmin RCE exploitation → Root shell.
+5. System and file enumeration.
+6. WordPress enumeration using WPScan.
+7. SQL Injection in wp-google-maps plugin.
+8. Credential extraction.
+9. Password cracking.
+10. WordPress admin access. 
+
+#### Important Commands Used
+
+```bash
+whoami
+id
+hostname
+uname -a
+ip a
+netstat -tunlp
+ps aux
+ls -la /home
+ls -la /var/www/html
+cat /var/www/html/wp-config.php
+ls -la /root
+cat /root/flag.txt
+
+wpscan --url http://<target>
+
+msfconsole
+use auxiliary/admin/http/wp_google_maps_sqli
+exploit
+
+john --wordlist=/usr/share/wordlists/rockyou.txt wordpresshash.txt
+```
+
+#### Vulnerabilities Identified
+
+* FTP Anonymous Access
+* Webmin RCE (CVE-2019-15107)
+* WordPress Plugin SQL Injection (CVE-2019-10692)
+* Weak WordPress Password (cracked with rockyou.txt)
+* Poor security hardening and outdated components. 
+
+#### Conclusion
+
+The assessment achieved **full system compromise**, including root access, extraction of sensitive credentials, WordPress admin access, and proof of impact through flag retrieval. The report recommends disabling anonymous FTP, patching Webmin and vulnerable plugins, enforcing strong passwords, enabling MFA, restricting unnecessary services, and performing regular vulnerability assessments. 
 
