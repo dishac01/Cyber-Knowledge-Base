@@ -1,6 +1,6 @@
 ### HF2019 Server Pentesting – Short Summary
 
-The final phase focused on **post-exploitation enumeration and evidence collection** after gaining a root shell through the Webmin RCE vulnerability. The system was fully compromised, allowing access to sensitive files, services, user information, and WordPress credentials. 
+The final phase focused on post-exploitation enumeration and evidence collection after gaining a root shell through the Webmin RCE vulnerability. The system was fully compromised, allowing access to sensitive files, services, user information, and WordPress credentials. 
 
 #### Key Findings
 
@@ -29,7 +29,6 @@ The final phase focused on **post-exploitation enumeration and evidence collecti
 
 #### Important Commands Used
 
-```bash
 whoami
 id
 hostname
@@ -50,7 +49,6 @@ use auxiliary/admin/http/wp_google_maps_sqli
 exploit
 
 john --wordlist=/usr/share/wordlists/rockyou.txt wordpresshash.txt
-```
 
 #### Vulnerabilities Identified
 
@@ -62,5 +60,5 @@ john --wordlist=/usr/share/wordlists/rockyou.txt wordpresshash.txt
 
 #### Conclusion
 
-The assessment achieved **full system compromise**, including root access, extraction of sensitive credentials, WordPress admin access, and proof of impact through flag retrieval. The report recommends disabling anonymous FTP, patching Webmin and vulnerable plugins, enforcing strong passwords, enabling MFA, restricting unnecessary services, and performing regular vulnerability assessments. 
+The assessment achieved full system compromise, including root access, extraction of sensitive credentials, WordPress admin access, and proof of impact through flag retrieval. The report recommends disabling anonymous FTP, patching Webmin and vulnerable plugins, enforcing strong passwords, enabling MFA, restricting unnecessary services, and performing regular vulnerability assessments. 
 
