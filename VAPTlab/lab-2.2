@@ -16,4 +16,9 @@ message: <script>alert("YOU ARE HACKED")</script>
 http://192.168.56.101/DVWA/vulnerabilities/xss_d/?default=<script>alert('DOM XSS')</script>
 -> popup appears
 
-4. 
+4. XSS Testing (**OWASP ZAP**) -> Automated
+kali$ zaproxy
+browse vuln site, attack -> active scan, attack ->  spider
+results shown in alerts tab
+
+5. XSS Testing (**Burp Suite**) -> Automated
