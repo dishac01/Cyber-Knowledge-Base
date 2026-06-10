@@ -1,2 +1,14 @@
 CROSS-SITE REQUEST FORGERY (CSRF)
 
+1. Manual CSRF Testing (GET-based):
+->change password manually in CSRF page of DVWA
+->observe password change request url (already vulnerable)
+->create malicious html file 
+->add forged password change request in the file:
+<img src="http://localhost/DVWA/vulnerabilities/csrf/?password_new=hacked123&password_conf=hacked123&Change=Change">
+->host the html file using python server
+->password changed without interacting with DVWA form
+
+2. Manual CSRF Testing (**Burp Suite**)
+
+
