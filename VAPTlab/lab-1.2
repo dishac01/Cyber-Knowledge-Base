@@ -7,8 +7,9 @@ kali$ nmap -sV -O 10.0.2.5
 Step 1: Launching vulnerability assessment (**Nessus**) -> Automated VA
 kali$ sudo systemctl start nessusd
 https://localhost:8834
-
-(to be updated)
+->create new scan ->basic scan
+->Name: HF2019 VA, Target: 10.0.2.5
+->save ->launch
 
 Step A: Port scanning & Service fingerprinting (**Nmap**) -> Manual PT
 kali$ nmap -sS -sV -O 10.0.2.5 
