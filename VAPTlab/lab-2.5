@@ -1,1 +1,15 @@
 WEAK CREDENTIALS & BRUTE FORCE
+
+1. Using **DVWA**
+-> open brute force field
+-> try default credentials manually
+-> capture login request with burp suite
+-> send to intruder -> positions
+-> highlight, add $
+username=$username$&password=$password$
+-> select attack type (sniper attack, cluster bomb)
+tests all combinations of usernames & passwords
+-> select payloads for usernames & passwords
+-> start attack & analyze results (status code, response length, response body)
+
+2. Using **Hydra**
