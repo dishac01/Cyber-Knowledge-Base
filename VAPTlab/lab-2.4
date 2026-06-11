@@ -1,2 +1,9 @@
-INSECURE DIRECT OBJECT REFERENCE (IDOR)
-
+INSECURE DIRECT OBJECT REFERENCE (IDOR):
+-> open target app
+http://testphp.vulnweb.com/artists.php?artist=1
+artist parameter is user-controllable & numeric
+-> change artist parameter to test
+http://testphp.vulnweb.com/artists.php?artist=2
+shows another user's info
+-> intercept request with burp suite
+-> check for sensitive info disclosure
