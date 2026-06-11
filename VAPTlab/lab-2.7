@@ -1,1 +1,17 @@
 OTP BRUTE FORCE VIA BURP INTRUDER
+-> created a vulnerable OTP verification page (otp.php) with a fixed OTP value
+http://localhost/otp.php
+-> submitted a test OTP value (111) through the web form
+-> captured the POST request in Burp Suite
+-> sent the request to intruder
+-> selected the OTP parameter as the payload position
+otp=§111§
+-> chose Sniper Attack mode
+-> configured numeric payloads
+From: 000
+To: 999
+Step: 1
+Set the payload format to 3 digits
+-> started the Intruder attack
+-> observed the server responses and compared response lengths
+-> identified the OTP value that produced a successful response
