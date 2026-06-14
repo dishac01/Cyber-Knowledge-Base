@@ -1,12 +1,5 @@
 # Monday Monitor - TryHackMe Write-up
 
-## Overview
-
-**Room:** Monday Monitor  
-**Platform:** TryHackMe  
-**Difficulty:** Easy  
-**Category:** SOC Analysis, Wazuh, Sysmon
-
 ## Scenario
 
 Swiftspend Finance is testing its endpoint monitoring solution using Wazuh and Sysmon. The objective is to investigate endpoint logs, identify malicious activities, and answer the questions provided in the room.
