@@ -118,7 +118,7 @@ Cross-referencing the historical records with the surname clue eventually reveal
 ### Flag
 
 ```text
-THM{REDACTED}
+THM{Yves-Marie_Gourlaouen_15}
 ```
 
 ---
