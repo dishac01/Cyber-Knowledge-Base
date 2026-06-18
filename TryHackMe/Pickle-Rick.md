@@ -166,10 +166,16 @@ While browsing the filesystem, I noticed that some directories could not be acce
 To locate the next ingredient:
 
 ```bash
-find / -type f 2>/dev/null
+sudo ls ../../../
+ls /home
+ls /home/rick
 ```
 
 A file belonging to Rick was identified.
+
+```bash
+grep " " /home/rick/second\ ingredient
+```
 
 Reading the file revealed the second ingredient.
 
@@ -229,7 +235,7 @@ ls
 A final ingredient file was present.
 
 ```bash
-cat 3rd.txt
+sudo grep " " /root/3rd.txt
 ```
 
 ### Third Ingredient
@@ -272,8 +278,6 @@ gobuster dir -u http://<TARGET_IP> -w wordlist.txt
 whoami
 
 ls
-
-find / -type f 2>/dev/null
 
 sudo -l
 
