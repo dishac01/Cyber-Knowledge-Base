@@ -148,7 +148,7 @@ ls
 A file containing the first ingredient was discovered.
 
 ```bash
-cat "Sup3rS3cretPickl3Ingred.txt"
+grep " " Sup3rS3cretPickl3Ingred.txt
 ```
 
 ### First Ingredient
