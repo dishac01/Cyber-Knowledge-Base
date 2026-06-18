@@ -55,6 +55,10 @@ This would likely be useful later during authentication.
 
 Next, I checked for common hidden files.
 
+```bash
+gobuster dir -u http://<TARGET_IP> -w /usr/share/wordlists/dirb/common.txt
+```
+
 ### robots.txt
 
 Navigating to:
