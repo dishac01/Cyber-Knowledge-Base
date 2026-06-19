@@ -5,5 +5,6 @@ This repository contains my cybersecurity learning notes, TryHackMe progress, Li
 Topics Covered:
 - TryHackMe
 - VAPT Lab notes
+- Python scripts
 
 Learning in public and documenting my cybersecurity journey.
