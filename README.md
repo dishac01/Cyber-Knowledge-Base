@@ -3,7 +3,7 @@
 This repository contains my cybersecurity learning notes, TryHackMe progress, Linux commands, networking concepts, tool references, and study materials. 
 
 Topics Covered:
-- TryHackMe
+- TryHackMe writeups
 - VAPT Lab notes
 - Python scripts
 
